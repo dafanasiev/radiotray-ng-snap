@@ -16,6 +16,7 @@ parts:
     source: snap/local
     organize:
       radiotray-ng-wrapper.sh: usr/bin/radiotray-ng-wrapper.sh
+      rtng-bookmark-editor-wrapper.sh: usr/bin/rtng-bookmark-editor-wrapper.sh
 
   radiotray-ng:
     plugin: nil
@@ -101,6 +102,22 @@ apps:
   radiotray-ng:
     desktop: usr/share/applications/radiotray-ng.desktop
     command: desktop-launch $SNAP/usr/bin/radiotray-ng-wrapper.sh
+    environment:
+      LC_ALL: C.UTF-8  
+    plugs:
+      - unity7
+      - desktop
+      - desktop-legacy
+      - gsettings
+      - home
+      - network
+      - pulseaudio
+      - x11
+      - wayland
+
+  rtng-bookmark-editor:
+    desktop: usr/share/applications/rtng-bookmark-editor.desktop
+    command: desktop-launch $SNAP/usr/bin/rtng-bookmark-editor-wrapper.sh
     environment:
       LC_ALL: C.UTF-8  
     plugs:
